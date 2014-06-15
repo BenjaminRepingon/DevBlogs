@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Article_m extends CI_Models
+class Article_m extends CI_Model
 {
 	/*
 	 * ADD

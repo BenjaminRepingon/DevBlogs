@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Category_m extends CI_Models
+class Category_m extends CI_Model
 {
 	/*
 	 * ADD
@@ -35,8 +35,10 @@ class Category_m extends CI_Models
 			$this->db->from('category');
 			$this->db->where('name', $name);
 			$query = $this->db->get();
-			if ($id = $query->result()[0])
+			$res = $query->result_array();
+			if (isset($res[0]))
 			{
+				$id = $res[0]['id'];
 				$this->load->model('Article_m');
 				$this->Article_m->del_by_id_category($id);
 			}
