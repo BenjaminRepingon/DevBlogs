@@ -14,6 +14,8 @@
 | path to your installation.
 |
 */
+// $protocol = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ) ? 'https' : 'http';
+// $config['base_url'] = $protocol.'://www.yoursite.com';
 $config['base_url']	= '';
 
 /*
@@ -26,7 +28,7 @@ $config['base_url']	= '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +46,7 @@ $config['index_page'] = 'index.php';
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= 'AUTO';
+$config['uri_protocol']	= "REQUEST_URI";
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +226,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'ldkfunornsjslskjakbfbkbjkbkhadbhja';
 
 /*
 |--------------------------------------------------------------------------
@@ -341,7 +343,7 @@ $config['time_reference'] = 'local';
 | in your view files.  Options are TRUE or FALSE (boolean)
 |
 */
-$config['rewrite_short_tags'] = FALSE;
+$config['rewrite_short_tags'] = TRUE;
 
 
 /*
