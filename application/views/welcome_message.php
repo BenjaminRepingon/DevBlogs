@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Démonstratgfdgdfgion des éléments de section HTML5</title>
+<title>Dev</title>
 
 <!-- Feuille de styles génériques -->
 <link rel="stylesheet" href="/xmedia/tuto/styles.css" type="text/css">
