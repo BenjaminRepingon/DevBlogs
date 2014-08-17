@@ -21,3 +21,10 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+.buildpath
+.project
+.settings/.jsdtscope
+.settings/org.eclipse.php.core.prefs
+.settings/org.eclipse.wst.jsdt.ui.superType.container
+.settings/org.eclipse.wst.jsdt.ui.superType.name
+application/controllers/Home.php
