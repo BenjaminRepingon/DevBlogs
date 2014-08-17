@@ -39,6 +39,11 @@
 */
 
 $route['default_controller'] = "Home";
+$route['home'] = 'Home';
+$route['home/(:any)'] = 'Home/$1';
+$route['Home'] = 'Home';
+$route['Home/(:any)'] = 'Home/$1';
+$route['(:any)'] = 'user';
 $route['404_override'] = '';
 
 
