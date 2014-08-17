@@ -43,7 +43,7 @@ $route['home'] = 'Home';
 $route['home/(:any)'] = 'Home/$1';
 $route['Home'] = 'Home';
 $route['Home/(:any)'] = 'Home/$1';
-$route['(:any)'] = 'user';
+$route['(:any)'] = 'user'; //access par user exemple devblogs.com/jflorimo
 $route['404_override'] = '';
 
 
