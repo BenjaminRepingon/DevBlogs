@@ -7,9 +7,9 @@ class User extends CI_Controller
 		echo "user";
 	}
 	
-	public function test()
+	public function createUser($user)
 	{
-		$this->load->view('defaultHome_view');
+		echo "user: $user";
 	}
 }
 

@@ -1,4 +1,9 @@
 #################
+## Src
+#################
+application/config/database.php #password
+
+#################
 ## Intellij
 #################
 .idea/

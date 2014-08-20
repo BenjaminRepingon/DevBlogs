@@ -39,11 +39,9 @@
 */
 
 $route['default_controller'] = "Home";
-$route['home'] = 'Home';
-$route['home/(:any)'] = 'Home/$1';
-$route['Home'] = 'Home';
-$route['Home/(:any)'] = 'Home/$1';
-$route['(:any)'] = 'user'; //access par user exemple devblogs.com/jflorimo
+
+$route['[Hh][Oo][Mm][Ee]'] = 'Home';
+$route['(:any)'] = 'user/createUser/$1'; //access par user exemple devblogs.com/jflorimo
 $route['404_override'] = '';
 
 
