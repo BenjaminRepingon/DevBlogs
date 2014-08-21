@@ -19,7 +19,8 @@
 
 	<h1>Nouveaux éléments de section, article, header, footer, aside, nav</h1>
 
-	<p><a href="/login">Connexion</a> - <a href="/register">Inscription</a></p>
+	<p><a href="<?PHP echo base_url() ?>login">Connexion</a> - <a
+			href="<?PHP echo base_url() ?>register">Inscription</a></p>
 </header>
 
 <div id="wrapper">
