@@ -36,3 +36,7 @@ $RECYCLE.BIN/
 .settings/org.eclipse.wst.jsdt.ui.superType.container
 .settings/org.eclipse.wst.jsdt.ui.superType.name
 application/controllers/Home.php
+application/config/database.php
+application/config/database.php
+.settings/org.eclipse.core.resources.prefs
+application/config/database.php

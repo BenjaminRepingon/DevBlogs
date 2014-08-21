@@ -19,7 +19,7 @@
 
 	<h1>Nouveaux éléments de section, article, header, footer, aside, nav</h1>
 
-	<p>Connexion - deconnexion</p>
+	<p><a href="home/login">Connexion</a> - <a href="home/register">Inscription</a></p>
 </header>
 
 <div id="wrapper">
