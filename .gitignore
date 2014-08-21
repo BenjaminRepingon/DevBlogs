@@ -4,7 +4,7 @@ database.php
 #################
 ## Src
 #################
-application/config/database.php #password
+application/config/database.php
 
 #################
 ## Intellij
