@@ -11,18 +11,30 @@
 			//data requiered for form || array (input_name, id_input)
 			$email = array('name' => 'email', 'id' => 'email');
 			$password = array('name' => 'password', 'id' => 'password');
-			$confirm_password = array('name' => 'confirm_password', 'id' => 'confirm_password');
 			$namespace = array('name' => 'namespace', 'id' => 'namespace');
 			
 			//form
 			echo form_open('/register', $form_attributes);
+			?>
 			
-			echo "email: ".form_input($email)."<br/>";
-			echo "password: ".form_password($password)."<br/>";
-			echo "confirm: ".form_password($confirm_password)."<br/>";
-			echo "namespace: ".form_input($namespace)."<br/>";
+			<label for="email">Email:</label>
+			<input type="text" name="email" values="<?php echo set_value('email');?>">
+			<?php echo form_error('email', '<span class=error"error">', "</span>");?>
+			<br/>
 			
+			<label for="password">Password</label>
+			<input type="password" name="password" values="<?php echo set_value('password');?>">
+			<?php echo form_error('pass', '<span class=error"error">', "</span>");?>
+			<br/>
+			
+			<label for="namespace">http://typedef.com/</label>			
+			<input type="text" name="namespace" values="<?php echo set_value('namespace');?>">
+			<?php echo form_error('namespace', '<span class=error"error">', "</span>");?>
+			<br/>
+			
+			<?php
 			echo form_submit('submit', 'Valider');
+			echo form_close();
 			
 			
 			
