@@ -10,7 +10,16 @@ class m_User extends CI_Model
 				'namespace' => $namespace
 		);
 		$this->db->insert('user', $data);
-	}	
+	}
+	
+	public function check_id($email, $password)
+	{
+		$this->db->where('email', $email);
+		$this->db->where('password', $password);
+		$q = $this->db->get('user');
+		if ($q->num_rows() > 0)
+			return true;
+	}
 }
 
 ?>
