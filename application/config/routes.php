@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if ( !defined( 'BASEPATH' ) ) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -43,6 +43,7 @@ $route['default_controller'] = "Home";
 $route['[Hh][Oo][Mm][Ee]'] = 'Home'; // Pour Ben
 $route['login'] = 'Home/login';
 $route['register'] = 'Home/register';
+$route['editor'] = 'Home/editor';
 $route['(:any)'] = 'user/createUser/$1'; //access par user exemple devblogs.com/jflorimo
 $route['404_override'] = '';
 

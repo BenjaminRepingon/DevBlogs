@@ -6,77 +6,66 @@ class Home extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_User');
 		$this->load->library('email');
 	}
-	
+
 	public function index()
 	{
-		$this->load->view('container/header/default');
-		$this->load->view('container/nav/default');
-
-		$this->load->view('home');
-
-		$this->load->view('container/sidebar/default');
-		$this->load->view('container/footer/default');
+		$this->load->model( 'm_article' );
+		$data['articles'] = $this->m_article->select( '*' );
+		load_container( $this, 'home', $data );
 	}
 	
 	public function register()
 	{
+		$this->load->model( 'm_user' );
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email|callback_check_email');
 		$this->form_validation->set_rules('namespace', 'Namespace', 'trim|required|xss_clean|callback_check_namespace');
 		$this->form_validation->set_rules('password', 'Mot de passe', 'trim|required|xss_clean|min_length[5]');
-		
+
 		if ($this->form_validation->run())
 		{
-			$this->m_User->add($this->input->post('email'), $this->input->post('password'), $this->input->post('namespace'));
+			$this->m_user->add( $this->input->post( 'email' ), $this->input->post( 'password' ), $this->input->post( 'namespace' ) );
 			redirect('Home');
 		}
 		else
-		{
-			$this->load->view('container/header/default');
-			$this->load->view('container/nav/default');
-			
-			$this->load->view('register');
-			
-			$this->load->view('container/sidebar/default');
-			$this->load->view('container/footer/default');
-		}
+			load_container( $this, 'register' );
 	}
-	
+
 	public function login()
 	{
-			$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email|callback_check_email');
-			$this->form_validation->set_rules('password', 'Mot de passe', 'trim|required|xss_clean|min_length[5]');
-			if ($this->form_validation->run())
+		$this->load->model( 'm_user' );
+		$this->form_validation->set_rules( 'email', 'Email', 'trim|required|xss_clean|valid_email|callback_check_email' );
+		$this->form_validation->set_rules( 'password', 'Mot de passe', 'trim|required|xss_clean|min_length[5]' );
+		if ( $this->form_validation->run() )
+		{
+			if ( $this->m_user->check_id( $this->input->post( 'email' ), $this->input->post( 'password' ) ) )
 			{
-				if ($this->m_User->check_id($this->input->post('email'), $this->input->post('password')))
-				{
-					$data = array('login' => $this->input->post('email'), 'logged' => true);
-					$this->session->set_userdata($data);
-					redirect('Home');
-				}
-				else
-				{
-					$data['error'] = 'Mauvais identidiants';
-					$this->load->view('container/header/default');
-					$this->load->view('container/nav/default');
-					
-					$this->load->view('login', $data);
-					
-					$this->load->view('container/sidebar/default');
-					$this->load->view('container/footer/default');
-				}
+				$data = array( 'login' => $this->input->post( 'email' ), 'logged' => true );
+				$this->session->set_userdata( $data );
+				redirect( 'Home' );
 			}
 			else
 			{
-				$this->load->view('container/header/default');
-				$this->load->view('container/nav/default');
-				
-				$this->load->view('login');
-				
-				$this->load->view('container/sidebar/default');
-				$this->load->view('container/footer/default');
+				$data['error'] = 'Mauvais identidiants';
+				load_container( $this, 'login', $data );
 			}
+		}
+		else
+			load_container( $this, 'login' );
+	}
+
+	public function editor()
+	{
+		$this->form_validation->set_rules( 'editor', 'Editor', 'trim|required|xss_clean' );
+		if ( $this->form_validation->run() )
+		{
+			$this->load->model( 'm_article' );
+			$this->m_article->add( "name", $this->input->post( 'editor' ), 0 );
+			redirect( 'Home' );
+		}
+		else
+			load_container( $this, 'editor' );
+
 	}
 }
