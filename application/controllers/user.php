@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( !defined( 'BASEPATH' ) ) exit('No direct script access allowed');
 
 class User extends CI_Controller
 {
@@ -7,10 +7,11 @@ class User extends CI_Controller
 		echo "user";
 	}
 
-	public function user( $user = NULL )
+	public function page( $namespace = NULL )
 	{
-		if ( $user )
+		if ( $namespace == NULL )
 			redirect( base_url() . 'home' );
-		echo "user: $user";
+		$data['namespace'] = $namespace;
+		load_container( $this, 'user', $data );
 	}
 }

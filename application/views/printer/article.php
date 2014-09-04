@@ -8,7 +8,7 @@
 		<p>Poster par
 			<span class="author">
 				<a rel="author"
-				   title="Voir les postes de <?PHP echo $article->author ?>"
+				   title="Voir les articles de <?PHP echo $article->author ?>"
 				   href="<?PHP echo base_url() . $article->author ?>"><?PHP echo $article->author ?></a>
 			</span>
 			le
@@ -19,7 +19,7 @@
 			dans
 			<span class="categories-links">
 				<a rel="category tag"
-				   title="Voir les postes dans <?PHP echo $article->category_name ?>"
+				   title="Voir les articles dans <?PHP echo $article->category_name ?>"
 				   href="<?PHP echo base_url() . "category/" . $article->category_name ?>"><?PHP echo $article->category_name ?></a>
 			</span>
 		</p>
@@ -31,7 +31,7 @@
 	</div>
 	<footer>
 		<a rel="tag"
-		   title="Voir les postes tager de <?PHP // @TODO tag name ?>"
+		   title="Voir les articles ayant le tag <?PHP // @TODO tag name ?>"
 		   href="<?PHP // @TODO link to tag ?>">Tag1</a>
 	</footer>
 </article>

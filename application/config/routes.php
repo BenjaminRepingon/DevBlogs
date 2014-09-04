@@ -47,7 +47,7 @@ $route['editor'] = 'Home/editor';
 $route['categories'] = 'categories';
 $route['category'] = 'categories/category/';
 $route['category/(:any)'] = 'categories/category/$1';
-$route['(:any)'] = 'user/user/$1'; //access par user exemple devblogs.com/jflorimo
+$route['(:any)'] = 'user/page/$1'; //access par user exemple devblogs.com/jflorimo
 $route['404_override'] = '';
 
 
