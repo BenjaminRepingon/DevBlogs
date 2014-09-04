@@ -7,8 +7,10 @@ class User extends CI_Controller
 		echo "user";
 	}
 
-	public function createUser($user)
+	public function user( $user = NULL )
 	{
+		if ( $user )
+			redirect( base_url() . 'home' );
 		echo "user: $user";
 	}
 }

@@ -2,31 +2,37 @@
 
 class Home extends CI_Controller
 {
-	
+
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->library('email');
+		$this->load->library( 'email' );
 	}
 
 	public function index()
 	{
 		$this->load->model( 'm_article' );
-		$data['articles'] = $this->m_article->select( '*' );
+		$this->load->model( 'm_category' );
+		$articles = $this->m_article->select( '*' );
+		foreach ( $articles as $article )
+		{
+			$article->category_name = $this->m_category->select_by_id( 'name', $article->id_category )[0]->name;
+		}
+		$data['articles'] = $articles;
 		load_container( $this, 'home', $data );
 	}
-	
+
 	public function register()
 	{
 		$this->load->model( 'm_user' );
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email|callback_check_email');
-		$this->form_validation->set_rules('namespace', 'Namespace', 'trim|required|xss_clean|callback_check_namespace');
-		$this->form_validation->set_rules('password', 'Mot de passe', 'trim|required|xss_clean|min_length[5]');
+		$this->form_validation->set_rules( 'email', 'Email', 'trim|required|xss_clean|valid_email|callback_check_email' );
+		$this->form_validation->set_rules( 'namespace', 'Namespace', 'trim|required|xss_clean|callback_check_namespace' );
+		$this->form_validation->set_rules( 'password', 'Mot de passe', 'trim|required|xss_clean|min_length[5]' );
 
-		if ($this->form_validation->run())
+		if ( $this->form_validation->run() )
 		{
 			$this->m_user->add( $this->input->post( 'email' ), $this->input->post( 'password' ), $this->input->post( 'namespace' ) );
-			redirect('Home');
+			redirect( 'Home' );
 		}
 		else
 			load_container( $this, 'register' );
@@ -66,6 +72,5 @@ class Home extends CI_Controller
 		}
 		else
 			load_container( $this, 'editor' );
-
 	}
 }

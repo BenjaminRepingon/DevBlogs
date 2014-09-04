@@ -1,54 +1,54 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( !defined( 'BASEPATH' ) ) exit('No direct script access allowed');
 
 class m_Article extends CI_Model
 {
 	/*
 	 * ADD
 	 */
-	public function add($name, $content, $id_category)
+	public function add( $title, $content, $id_category )
 	{
 		$data = array(
-			'name' => $name,
+			'title' => $title,
 			'content' => $content,
 			'id_category' => $id_category
 		);
-		$this->db->insert('article', $data);
+		$this->db->insert( 'article', $data );
 	}
 
 	/*
 	 * DELETE
 	 */
-	public function del_by_id($id)
+	public function del_by_id( $id )
 	{
-		$this->db->where('id', $id);
-		$this->db->delete('article');
+		$this->db->where( 'id', $id );
+		$this->db->delete( 'article' );
 	}
 
-	public function del_by_name($name)
+	public function del_by_title( $title )
 	{
-		$this->db->where('name', $name);
-		$this->db->delete('article');
+		$this->db->where( 'title', $title );
+		$this->db->delete( 'article' );
 	}
 
-	public function del_by_id_category($id_category)
+	public function del_by_id_category( $id_category )
 	{
-		$this->db->where('id_category', $id_category);
-		$this->db->delete('article');
+		$this->db->where( 'id_category', $id_category );
+		$this->db->delete( 'article' );
 	}
 
 	/*
 	 * UPDATE
 	 */
-	public function update_by_id($id, Array $data)
+	public function update_by_id( $id, Array $data )
 	{
-		$this->db->where('id', $id);
-		$this->db->update('article', $data);
+		$this->db->where( 'id', $id );
+		$this->db->update( 'article', $data );
 	}
 
-	public function update_by_name($name, Array $data)
+	public function update_by_title( $title, Array $data )
 	{
-		$this->db->where('name', $name);
-		$this->db->update('article', $data);
+		$this->db->where( 'title', $title );
+		$this->db->update( 'article', $data );
 	}
 
 	/*
@@ -56,26 +56,26 @@ class m_Article extends CI_Model
 	 */
 	public function select( $select, $where = NULL )
 	{
-		$this->db->select($select);
-		$this->db->from('article');
+		$this->db->select( $select );
+		$this->db->from( 'article' );
 		if ( $where != NULL )
 			$this->db->where( $where );
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	public function select_by_id($select, $id)
+	public function select_by_id( $select, $id )
 	{
-		return $this->select($select, array('id' => $id));
+		return $this->select( $select, array( 'id' => $id ) );
 	}
 
-	public function select_by_name($select, $name)
+	public function select_by_title( $select, $title )
 	{
-		return $this->select($select, array('name' => $name));
+		return $this->select( $select, array( 'title' => $title ) );
 	}
 
-	public function select_by_date_between($select, $timestamp_min, $timestamp_max)
+	public function select_by_date_between( $select, $timestamp_min, $timestamp_max )
 	{
-		return $this->select($select, array('date >' => $timestamp_min, 'date <' => $timestamp_max));
+		return $this->select( $select, array( 'date >' => $timestamp_min, 'date <' => $timestamp_max ) );
 	}
 }

@@ -44,7 +44,10 @@ $route['[Hh][Oo][Mm][Ee]'] = 'Home'; // Pour Ben
 $route['login'] = 'Home/login';
 $route['register'] = 'Home/register';
 $route['editor'] = 'Home/editor';
-$route['(:any)'] = 'user/createUser/$1'; //access par user exemple devblogs.com/jflorimo
+$route['categories'] = 'categories';
+$route['category'] = 'categories/category/';
+$route['category/(:any)'] = 'categories/category/$1';
+$route['(:any)'] = 'user/user/$1'; //access par user exemple devblogs.com/jflorimo
 $route['404_override'] = '';
 
 
