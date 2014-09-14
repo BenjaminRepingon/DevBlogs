@@ -42,6 +42,7 @@ $route['default_controller'] = "Home";
 
 $route['[Hh][Oo][Mm][Ee]'] = 'Home'; // Pour Ben
 $route['login'] = 'Home/login';
+$route['logout'] = 'Home/logout';
 $route['register'] = 'Home/register';
 $route['editor'] = 'Home/editor';
 $route['categories'] = 'categories';

@@ -14,6 +14,9 @@
 			
 			//form
 			echo form_open('/login', $form_attributes);
+
+			if (isset($error))
+				echo "Mauvais email ou mot de passe<br/>";
 			?>
 			
 			<label for="email">Email:</label>
@@ -26,13 +29,11 @@
 			<?php echo form_error('pass', '<span class=error"error">', "</span>");?>
 			<br/>
 			
+
 			
 			<?php
 			echo form_submit('submit', 'Valider');
-			echo form_close();
-			
-			
-			
+			echo form_close();			
 		?>
 	</div>
 

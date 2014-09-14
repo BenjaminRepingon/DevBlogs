@@ -7,7 +7,7 @@
 	if ( $this->session->userdata( 'logged' ) )
 	{
 		?>
-		<p> Bievenue - <a href="<?PHP echo base_url() ?>login">Deconnexion</a></p>
+		<p> Bievenue - <a href="<?PHP echo base_url() ?>logout">Deconnexion</a></p>
 	<?php
 	}
 	else
