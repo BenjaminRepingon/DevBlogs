@@ -1,3 +1,5 @@
+</section>
+
 <!-- sidebar -->
 <aside id="sidebar">
 	<span class="elem">aside</span>

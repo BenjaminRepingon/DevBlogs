@@ -17,7 +17,7 @@
 		?>
 
 		<label for="email">Email:</label>
-		<input id="email" type="text" name="email" values="<?php echo set_value( 'email' ); ?>">
+		<input id="email" type="email" name="email" values="<?php echo set_value( 'email' ); ?>">
 		<?php echo form_error( 'email', '<span class=error"error">', "</span>" ); ?>
 		<br/>
 

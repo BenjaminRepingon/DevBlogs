@@ -8,3 +8,6 @@
 		<li><a href="#">Rubrique 4</a></li>
 	</ul>
 </nav>
+
+<!-- Main -->
+<section id="main">
